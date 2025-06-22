@@ -2,7 +2,7 @@ version: '3'
 
 services:
   eventsourcing.in.api:
-    image: ei8works/eventsourcing.in.api:0.1.3
+    image: ei8io/eventsourcing.in.api:0.1.4
     env_file:
       - ./variables.env
     expose:
@@ -10,7 +10,7 @@ services:
     volumes:
       - ./:/C/db
   eventsourcing.out.api:
-    image: ei8works/eventsourcing.out.api:0.1.3
+    image: ei8io/eventsourcing.out.api:0.1.4
     env_file:
       - ./variables.env
     expose:
