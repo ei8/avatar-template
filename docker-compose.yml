@@ -148,7 +148,7 @@ services:
       - "${UN8Y_BLAZOR_PORT}"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:${UN8Y_BLAZOR_PORT};http://+:80
+      - ASPNETCORE_URLS=https://+:${UN8Y_BLAZOR_PORT};http://+:80
     volumes:
       - ~/.aspnet/https:/https:ro
       - ./:/C/db
