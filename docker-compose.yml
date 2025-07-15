@@ -140,7 +140,7 @@ services:
     volumes:
       - ./:/C/db
   un8y.api:
-    image: ei8io/un8y.api:0.4.0
+    image: ei8io/un8y.api:0.4.1
     env_file:
       - ./un8y/variables.env
     expose:
