@@ -51,6 +51,14 @@
     {
       "Key": "ei8.Avatar.Installer.Domain.Model.Avatars.Avatar:Name",
       "Url": "http://neurul.net/sample/cortex/neurons/075522a1-5f54-4e05-b0f7-3a3cb4a1b79b"
+    },
+    {
+      "Key": "ei8.Avatar.Installer.Domain.Model.Avatars.Avatar:CreationTimestamp",
+      "Url": "http://neurul.net/sample/cortex/neurons/7285bd12-be9d-4d87-8f8c-5379f425b6c4"
+    },
+    {
+      "Key": "ei8.Avatar.Installer.Domain.Model.Avatars.Avatar:LastModificationTimestamp",
+      "Url": "http://neurul.net/sample/cortex/neurons/93c60f99-b9e8-4b30-8194-fddbde87aa2"
     }
   ]
 }
