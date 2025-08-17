@@ -9,6 +9,7 @@ services:
       - "80"
     volumes:
       - ./:/C/db
+      - ${KEYS_PATH}:/C/keys
   eventsourcing.out.api:
     image: ei8io/eventsourcing.out.api:0.1.5
     env_file:
@@ -17,6 +18,7 @@ services:
       - "80"
     volumes:
       - ./:/C/db
+      - ${KEYS_PATH}:/C/keys
   cortex.graph.persistence:
     image: arangodb:3.11.3
     ports:
@@ -149,8 +151,6 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:${UN8Y_BLAZOR_PORT};http://+:80
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=${CERT_PWD}
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
     volumes:
       - ./https:/https:ro
       - ./:/C/db
