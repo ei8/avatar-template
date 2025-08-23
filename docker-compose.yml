@@ -2,7 +2,7 @@ version: '3'
 
 services:
   eventsourcing.in.api:
-    image: ei8io/eventsourcing.in.api:0.1.5
+    image: ei8io/eventsourcing.in.api:0.1.6
     env_file:
       - ./variables.env
     expose:
@@ -11,7 +11,7 @@ services:
       - ./:/C/db
       - ${KEYS_PATH}:/C/keys
   eventsourcing.out.api:
-    image: ei8io/eventsourcing.out.api:0.1.5
+    image: ei8io/eventsourcing.out.api:0.1.6
     env_file:
       - ./variables.env
     expose:
@@ -56,7 +56,7 @@ services:
       "cortex.graph.persistence":
         condition: service_healthy
   cortex.diary.nucleus.in.api:
-    image: ei8io/cortex.diary.nucleus.in.api:0.2.7
+    image: ei8io/cortex.diary.nucleus.in.api:0.2.8
     env_file:
       - ./variables.env
     expose:
@@ -70,7 +70,7 @@ services:
       - SUBSCRIPTIONS_IN_BASE_URL=http://cortex.subscriptions.in.api:80
       - SUBSCRIPTIONS_OUT_BASE_URL=http://cortex.subscriptions.out.api:80
   cortex.diary.nucleus.out.api:
-    image: ei8io/cortex.diary.nucleus.out.api:0.2.7
+    image: ei8io/cortex.diary.nucleus.out.api:0.2.8
     env_file:
       - ./variables.env
     expose:
@@ -142,7 +142,7 @@ services:
     volumes:
       - ./:/C/db
   un8y.api:
-    image: ei8io/un8y.api:0.4.1
+    image: ei8io/un8y.api:0.4.2
     env_file:
       - ./un8y/variables.env
     expose:
@@ -157,7 +157,7 @@ services:
     ports:
       - ${UN8Y_IP}:${UN8Y_BLAZOR_PORT}:${UN8Y_BLAZOR_PORT}
   cortex.chat.nucleus.in.api:
-    image: ei8io/cortex.chat.nucleus.in.api:0.3.0
+    image: ei8io/cortex.chat.nucleus.in.api:0.3.1
     env_file:
       - ./variables.env
     expose:
@@ -169,9 +169,9 @@ services:
       - IDENTITY_ACCESS_IN_BASE_URL=http://cortex.identityaccess.in.api:80
       - IDENTITY_ACCESS_OUT_BASE_URL=http://cortex.identityaccess.out.api:80
     volumes:
-      - ./chat-nucleus-settings.json:/app/appsettings.json
+      - ./m8/settings.json:/app/appsettings.json
   cortex.chat.nucleus.out.api:
-    image: ei8io/cortex.chat.nucleus.out.api:0.3.0
+    image: ei8io/cortex.chat.nucleus.out.api:0.3.1
     env_file:
       - ./variables.env
     expose:
@@ -183,4 +183,4 @@ services:
       - IDENTITY_ACCESS_IN_BASE_URL=http://cortex.identityaccess.in.api:80
       - IDENTITY_ACCESS_OUT_BASE_URL=http://cortex.identityaccess.out.api:80
     volumes:
-      - ./chat-nucleus-settings.json:/app/appsettings.json
+      - ./m8/settings.json:/app/appsettings.json
