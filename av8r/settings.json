@@ -53,12 +53,20 @@
       "Url": "http://neurul.net/sample/cortex/neurons/075522a1-5f54-4e05-b0f7-3a3cb4a1b79b"
     },
     {
-      "Key": "ei8.Avatar.Installer.Domain.Model.Avatars.Avatar:CreationTimestamp",
+      "Key": "ei8.Cortex.Coding.Versioning.Snapshot",
       "Url": "http://neurul.net/sample/cortex/neurons/7285bd12-be9d-4d87-8f8c-5379f425b6c4"
     },
     {
-      "Key": "ei8.Avatar.Installer.Domain.Model.Avatars.Avatar:LastModificationTimestamp",
+      "Key": "ei8.Cortex.Coding.Versioning.Snapshot:Original",
       "Url": "http://neurul.net/sample/cortex/neurons/93c60f99-b9e8-4b30-8194-8fddbde87aa2"
+    },
+    {
+      "Key": "ei8.Cortex.Coding.Versioning.Snapshot:Value",
+      "Url": "http://neurul.net/sample/cortex/neurons/ea830bb8-254a-46c1-8293-317756d837cd"
+    },
+    {
+      "Key": "ei8.Cortex.Coding.Versioning.Snapshot:Timestamp",
+      "Url": "http://neurul.net/sample/cortex/neurons/ceb945d7-8a0c-43f4-b637-8807d651562b"
     }
   ]
 }
