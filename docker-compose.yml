@@ -23,7 +23,7 @@ services:
     image: arangodb:3.11.3
     ports:
 #     - "XXXX:8529" - XXXX each instance of arangodb should bind to a distinct port in the neurUL server
-      - "8529:8529"
+      - "${GRAPH_PERSISTENCE_PORT}:8529"
     volumes:
       - ./arangodb/:/var/lib/arangodb3
     env_file:
