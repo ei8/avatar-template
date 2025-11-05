@@ -157,7 +157,7 @@ services:
     ports:
       - ${UN8Y_IP}:${UN8Y_BLAZOR_PORT}:${UN8Y_BLAZOR_PORT}
   cortex.chat.nucleus.in.api:
-    image: ei8io/cortex.chat.nucleus.in.api:0.3.1
+    image: ei8io/cortex.chat.nucleus.in.api:0.3.2
     env_file:
       - ./variables.env
     expose:
@@ -171,7 +171,7 @@ services:
     volumes:
       - ./m8/settings.json:/app/appsettings.json
   cortex.chat.nucleus.out.api:
-    image: ei8io/cortex.chat.nucleus.out.api:0.3.1
+    image: ei8io/cortex.chat.nucleus.out.api:0.3.2
     env_file:
       - ./variables.env
     expose:
