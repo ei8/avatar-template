@@ -45,13 +45,20 @@ services:
       "cortex.graph.persistence":
         condition: service_healthy
   cortex.graph.out.api:
-    image: ei8io/cortex.graph.out.api:0.3.9
+    build: 
+      context: .
+      dockerfile: docker/cortex.graph.out.api.txt
     env_file:
       - ./variables.env
     expose:
       - "80"
     environment:
       - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
+    healthcheck:
+      test: curl -f http://127.0.0.1:80/cortex/graph/neurons || exit 1
+      interval: 3s
+      timeout: 3s
+      retries: 10
     depends_on:
       "cortex.graph.persistence":
         condition: service_healthy
@@ -93,6 +100,14 @@ services:
       - CORTEX_GRAPH_OUT_BASE_URL=http://cortex.graph.out.api:80
       - EVENT_SOURCING_OUT_BASE_URL=http://eventsourcing.out.api:80
       - IDENTITY_ACCESS_OUT_BASE_URL=http://cortex.identityaccess.out.api:80
+    healthcheck:
+      test: curl -f http://127.0.0.1:80/cortex/neurons?userid=Guest || exit 1
+      interval: 3s
+      timeout: 3s
+      retries: 10
+    depends_on:
+      "cortex.graph.out.api":
+        condition: service_healthy
   avatar.in.api:
     image: ei8io/avatar.in.api:0.2.0
     env_file:
@@ -157,7 +172,7 @@ services:
     ports:
       - ${UN8Y_IP}:${UN8Y_BLAZOR_PORT}:${UN8Y_BLAZOR_PORT}
   cortex.chat.nucleus.in.api:
-    image: ei8io/cortex.chat.nucleus.in.api:0.3.2
+    image: ei8io/cortex.chat.nucleus.in.api:0.3.4
     env_file:
       - ./variables.env
     expose:
@@ -170,8 +185,11 @@ services:
       - IDENTITY_ACCESS_OUT_BASE_URL=http://cortex.identityaccess.out.api:80
     volumes:
       - ./m8/settings.json:/app/appsettings.json
+    depends_on:
+      "cortex.library.out.api":
+        condition: service_healthy
   cortex.chat.nucleus.out.api:
-    image: ei8io/cortex.chat.nucleus.out.api:0.3.2
+    image: ei8io/cortex.chat.nucleus.out.api:0.3.4
     env_file:
       - ./variables.env
     expose:
@@ -184,3 +202,6 @@ services:
       - IDENTITY_ACCESS_OUT_BASE_URL=http://cortex.identityaccess.out.api:80
     volumes:
       - ./m8/settings.json:/app/appsettings.json
+    depends_on:
+      "cortex.library.out.api":
+        condition: service_healthy
