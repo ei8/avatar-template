@@ -202,7 +202,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.un8y-api-${AVATAR_NAME}.rule=PathPrefix(`/un8y`)"
       - "traefik.http.routers.un8y-api-${AVATAR_NAME}.entrypoints=web-${AVATAR_NAME}"
-      - "traefik.http.routers.un8y-api-${AVATAR_NAME}.middlewares=un8y-strip@docker"
+      - "traefik.http.routers.un8y-api-${AVATAR_NAME}.middlewares=un8y-strip@docker,addfibonacc-hostheader@docker,addhttps-protoheader@docker"
   cortex.chat.nucleus.in.api:
     image: ei8io/cortex.chat.nucleus.in.api:0.3.5
     env_file:
